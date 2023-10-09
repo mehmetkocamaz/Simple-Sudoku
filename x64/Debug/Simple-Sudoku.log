@@ -1,0 +1,10 @@
+﻿  EntryPoint.cpp
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(48,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(49,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(80,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(85,18): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  Simple-Sudoku.vcxproj -> C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\x64\Debug\Simple-Sudoku.exe
