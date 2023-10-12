@@ -1,10 +1,17 @@
 ﻿  EntryPoint.cpp
-C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(48,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(49,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(80,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(85,18): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(62,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(63,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(94,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(99,18): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
           with
           [
               _Rep=std::chrono::system_clock::rep
           ]
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(126,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(132,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(133,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(188,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(189,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(193,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\Functions.h(194,18): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Simple-Sudoku.vcxproj -> C:\Users\kocam\OneDrive\Belgeler\GitHub\Simple-Sudoku\x64\Debug\Simple-Sudoku.exe

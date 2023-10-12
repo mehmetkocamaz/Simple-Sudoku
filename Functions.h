@@ -10,25 +10,39 @@
 const int PUZZLE_SIZE = 9;
 const int EMPTY_VALUE = 0;
 std::array<int, 9> values = { 1,2,3,4,5,6,7,8,9 };
+int numberOfSolution = 0;
+
+void Sleep(int milliseconds) {
+	std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
+}
 
 void PrintPuzzle(int puzzle[PUZZLE_SIZE][PUZZLE_SIZE]) {
 	for (size_t i = 0; i < PUZZLE_SIZE; i++)
 	{
+		if (i == 0)
+		{
+			std::cout << "-------------------\n";
+		}
 		for (size_t j = 0; j < PUZZLE_SIZE; j++)
 		{
-			if (ceil(j % 3) == 0)
+			if (j == 0)
 			{
-				if (j != 0)
-				{
-					std::cout << " - ";
-				}
-				if (ceil(j % 9) == 0 && i != 0) {
-					std::cout << "\n----------------\n";
-				}
+				std::cout << "| ";
 			}
 			std::cout << puzzle[i][j];
+			if (j == 2 || j == 5 || j == 8)
+			{
+				std::cout << " | ";
+			}
 		}
+		if (i == 2 || i == 5 || i == 8)
+		{
+			std::cout << "\n-------------------";
+		}
+		std::cout << "\n";
 	}
+
+	std::cout << "\n" << std::endl;
 }
 
 bool IsValid(int puzzle[PUZZLE_SIZE][PUZZLE_SIZE], int row, int column, int value) {
@@ -103,7 +117,59 @@ bool FillPuzzle(int(&puzzle)[PUZZLE_SIZE][PUZZLE_SIZE]) {
 	return false;
 }
 
-void GeneratePuzzle(int(&puzzle)[PUZZLE_SIZE][PUZZLE_SIZE]) {
+bool SolveSudoku(int puzzle[PUZZLE_SIZE][PUZZLE_SIZE], bool visualize = false) {
+
+	int row, column;
+
+	for (size_t i = 0; i < PUZZLE_SIZE * PUZZLE_SIZE; i++)
+	{
+		row = floor(i / PUZZLE_SIZE);
+		column = i % PUZZLE_SIZE;
+
+		if (puzzle[row][column] == EMPTY_VALUE) {
+			for (size_t value = 1; value <= PUZZLE_SIZE; value++)
+			{
+				if (IsValid(puzzle, row, column, value)) {
+					puzzle[row][column] = value;
+
+					if (visualize) {
+						Sleep(100);
+						PrintPuzzle(puzzle);
+					}
+
+					if (!HasEmptyCell(puzzle)) {
+						numberOfSolution++;
+
+						if (visualize) {
+							Sleep(100);
+							PrintPuzzle(puzzle);
+							return true;
+						}
+
+						break;
+					}
+					else if (SolveSudoku(puzzle,visualize))
+					{
+						return true;
+					}
+				}
+			}
+
+			break;
+		}
+	}
+
+	puzzle[row][column] = EMPTY_VALUE;
+
+	if (visualize) {
+		Sleep(100);
+		PrintPuzzle(puzzle);
+	}
+
+	return false;
+}
+
+void GeneratePuzzle(int(&puzzle)[PUZZLE_SIZE][PUZZLE_SIZE], int difficulty = 1) {
 	for (size_t i = 0; i < PUZZLE_SIZE; i++)
 	{
 		for (size_t j = 0; j < PUZZLE_SIZE; j++)
@@ -113,4 +179,32 @@ void GeneratePuzzle(int(&puzzle)[PUZZLE_SIZE][PUZZLE_SIZE]) {
 	}
 
 	FillPuzzle(puzzle);
+
+	// removing the numbers
+	srand((unsigned)time(0));
+	int attempt = difficulty;
+
+	while (attempt > 0) {
+		int row = floor(rand() % PUZZLE_SIZE);
+		int column = floor(rand() % PUZZLE_SIZE);
+
+		while (puzzle[row][column] == EMPTY_VALUE)
+		{
+			row = floor(rand() % PUZZLE_SIZE);
+			column = floor(rand() % PUZZLE_SIZE);
+		}
+
+		int oldValue = puzzle[row][column];
+		puzzle[row][column] = EMPTY_VALUE;
+
+		numberOfSolution = 0;
+		SolveSudoku(puzzle);
+
+		if (numberOfSolution != 1) {
+			puzzle[row][column] = oldValue;
+			attempt--;
+		}
+
+	}
+
 }
